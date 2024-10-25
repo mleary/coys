@@ -9,15 +9,30 @@
     ]
   },
   "Packages": {
-    "prompt": {
-      "Package": "prompt",
-      "Version": "1.0.2",
+    "cli": {
+      "Package": "cli",
+      "Version": "3.6.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "b21916dd77a27642b447374a5d30ecf3"
+    },
+    "prompt": {
+      "Package": "prompt",
+      "Version": "1.0.2.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "prompt",
+      "RemoteUsername": "gaborcsardi",
+      "RemoteSha": "17bd0e1737babf6c6752c31e68ab4ac4bd0f5acd",
+      "Requirements": [
         "cli"
       ],
-      "Hash": "076fd4918669daae112d5c6e4919bb9b"
+      "Hash": "23e1f8227dc196805d59cc93ed767770"
     },
     "renv": {
       "Package": "renv",
