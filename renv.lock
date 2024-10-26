@@ -8,7 +8,7 @@
       }
     ]
   },
-  "Packages": {
+  "Packages": {`weekly_data_capture.R`
     "DBI": {
       "Package": "DBI",
       "Version": "1.2.3",
