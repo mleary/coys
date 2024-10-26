@@ -41,7 +41,7 @@ write_team_stats_to_db <- function(team_stats, stat_type,
   if (!dbExistsTable(con, stat_type)) {
     # Create the table and insert all data
     dbWriteTable(con, stat_type, team_stats)
-    return(paste('New Table added:', nrow(new_data), "for", stat_type))
+    return(paste('New Table added:', nrow(team_stats), "for", stat_type))
   } else {
     # Read existing data from the table
     existing_data <- dbReadTable(con, stat_type)
