@@ -45,7 +45,7 @@ get_team_stats <- function(stat_type) {
 
 
 write_team_stats_to_db <- function(team_stats, stat_type, 
-                                   db_name = "weekly_epl_data.duckdb") {
+                                   db_name = "weekly_epl_data_test.duckdb") {
 
   # Connect to the DuckDB database
   con <- dbConnect(duckdb(), dbdir = db_name, read_only = FALSE) # nolint
@@ -77,15 +77,12 @@ write_team_stats_to_db <- function(team_stats, stat_type,
 
 
 # Capture data for each stat type =============================================
+# Intentionally keeping this simple to throw an error and cause an email alert
+# on failure for now.
 for (item in stat_types) {
-  tryCatch({
-    team_stats <- get_team_stats(item)
-    outcome <- write_team_stats_to_db(team_stats, item)
-    message(paste("Success! Outcome:", outcome, "for:", item))
-  }, error = function(e) {
-    message(paste("Error capturing data for stat type:", item, 
-                  "Error message:", e$message))
-  })
+  team_stats <- get_team_stats(item)
+  outcome <- write_team_stats_to_db(team_stats, item)
+  message(paste("Success! Outcome:", outcome, "for:", item))
 }
 
 
