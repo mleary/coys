@@ -77,15 +77,11 @@ write_team_stats_to_db <- function(team_stats, stat_type,
 
 
 # Capture data for each stat type =============================================
+# Intentionally not using TryCatch to let failure send alert email
 for (item in stat_types) {
-  tryCatch({
     team_stats <- get_team_stats(item)
     outcome <- write_team_stats_to_db(team_stats, item)
     message(paste("Success! Outcome:", outcome, "for:", item))
-  }, error = function(e) {
-    message(paste("Error capturing data for stat type:", item, 
-                  "Error message:", e$message))
-  })
 }
 
 
