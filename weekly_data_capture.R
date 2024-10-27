@@ -45,7 +45,7 @@ get_team_stats <- function(stat_type) {
 
 
 write_team_stats_to_db <- function(team_stats, stat_type, 
-                                   db_name = "weekly_epl_data_test.duckdb") {
+                                   db_name = "weekly_epl_data.duckdb") {
 
   # Connect to the DuckDB database
   con <- dbConnect(duckdb(), dbdir = db_name, read_only = FALSE) # nolint
