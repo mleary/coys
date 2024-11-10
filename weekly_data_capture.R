@@ -4,7 +4,7 @@
 # Intent: I wanted to keep this simple and not overly documented since it will
 #         not be updated regularly.  This script loads packages, and then uses
 #         the worldfootballR package to capture data from the fbref website.
-#         The stat types are ones provided natively by fbref.  
+#         The stat types are ones provided natively by fbref.
 # Author:  Matt Leary
 # Date Created: 2024-10-23
 # Last Modified: 2024-10-26
@@ -51,6 +51,9 @@ write_team_stats_to_db <- function(team_stats, stat_type,
   con <- dbConnect(duckdb(), dbdir = db_name, read_only = FALSE) # nolint
   on.exit(dbDisconnect(con), add = TRUE)  # Ensure the connection is closed
 
+  # Add timestamp column to team_stats
+  team_stats$timestamp <- format(Sys.time(), "%Y-%m-%d %H:%M:%S")
+  
   # Check if the table exists
   if (!dbExistsTable(con, stat_type)) {
     # Create the table and insert all data
@@ -100,5 +103,5 @@ for (item in stat_types) {
 # svn rev        86737                       
 # language       R                           
 # version.string R version 4.4.1 (2024-06-14)
-# nickname       Race for Your Life     
+# nickname       Race for Your Life
 # ==============================================================================
