@@ -52,7 +52,7 @@ write_team_stats_to_db <- function(team_stats, stat_type,
   on.exit(dbDisconnect(con), add = TRUE)  # Ensure the connection is closed
 
   # Add timestamp column to team_stats
-  team_stats$timestamp <- Sys.time()
+  team_stats$timestamp <- format(Sys.time(), "%Y-%m-%d %H:%M:%S")
   
   # Check if the table exists
   if (!dbExistsTable(con, stat_type)) {
