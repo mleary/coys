@@ -52,8 +52,8 @@ write_team_stats_to_db <- function(team_stats, stat_type,
   on.exit(dbDisconnect(con), add = TRUE)  # Ensure the connection is closed
 
   # Add timestamp column to team_stats
-  team_stats$timestamp <- format(Sys.time(), "%Y-%m-%d %H:%M:%S")
-  
+  team_stats$timestamp <- Sys.time()
+
   # Check if the table exists
   if (!dbExistsTable(con, stat_type)) {
     # Create the table and insert all data
@@ -63,8 +63,11 @@ write_team_stats_to_db <- function(team_stats, stat_type,
     # Read existing data from the table
     existing_data <- dbReadTable(con, stat_type)
 
-    # Identify new rows by performing an anti-join
-    new_data <- anti_join(team_stats, existing_data, by = colnames(team_stats))
+    # Exclude 'timestamp' from the columns used for the anti_join
+    join_cols <- setdiff(colnames(team_stats), 'timestamp')
+    
+    # Identify new rows by performing an anti_join
+    new_data <- anti_join(team_stats, existing_data, by = join_cols)
 
     # Write only the new data to the database
     if (nrow(new_data) > 0) {
