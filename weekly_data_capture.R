@@ -16,6 +16,7 @@ library(ggplot2)
 library(duckdb)
 library(DBI)
 library(dplyr)
+library(AzureStor)
 
 # List of stat types to capture ===============================================
 stat_types <- c("league_table", "league_table_home_away", "standard", "keeper",
