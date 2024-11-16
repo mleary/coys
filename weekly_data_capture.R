@@ -17,6 +17,16 @@ library(duckdb)
 library(DBI)
 library(dplyr)
 library(AzureStor)
+library(dotenv)
+
+# Load environment and set variables
+# ===============================================
+storage_account <- Sys.getenv("STORAGE_ACCOUNT")
+access_key <- Sys.getenv("ACCESS_KEY")
+endpoint <- storage_endpoint(storage_account, key=access_key)
+CONTAINER <- storage_container(endpoint, "coys-databases")
+DB_NAME <- 'weekly_epl_data.duckdb'
+
 
 # List of stat types to capture ===============================================
 stat_types <- c("league_table", "league_table_home_away", "standard", "keeper",
@@ -45,8 +55,18 @@ get_team_stats <- function(stat_type) {
 }
 
 
-write_team_stats_to_db <- function(team_stats, stat_type, 
-                                   db_name = "weekly_epl_data.duckdb") {
+write_db_to_azure <- function(container, db_name) {
+  # Upload the updated database to Azure blob storage
+  storage_upload(
+    container,
+    src = db_name,
+    dest = db_name
+  )
+  print('Upload complete')
+}
+
+
+write_team_stats_to_db <- function(team_stats, stat_type, db_name) {
 
   # Connect to the DuckDB database
   con <- dbConnect(duckdb(), dbdir = db_name, read_only = FALSE) # nolint
@@ -87,8 +107,10 @@ write_team_stats_to_db <- function(team_stats, stat_type,
 # Intentionally not using TryCatch to let failure send alert email
 for (item in stat_types) {
     team_stats <- get_team_stats(item)
-    outcome <- write_team_stats_to_db(team_stats, item)
-    message(paste("Success! Outcome:", outcome, "for:", item))
+    outcome <- write_team_stats_to_db(team_stats, item, DB_NAME)
+    message(paste("Success writing local DB! Outcome:", outcome, "for:", item))
+    write_db_to_azure(CONTAINER, DB_NAME)
+    message(paste("Success writing DB to azure!"))
 }
 
 
