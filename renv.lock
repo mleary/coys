@@ -165,13 +165,13 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "5.2.3",
+      "Version": "6.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "d91263322a58af798f6cf3b13fd56dde"
+      "Hash": "e8ba62486230951fcd2b881c5be23f96"
     },
     "dplyr": {
       "Package": "dplyr",
@@ -198,7 +198,7 @@
     },
     "duckdb": {
       "Package": "duckdb",
-      "Version": "1.1.1",
+      "Version": "1.1.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -207,7 +207,7 @@
         "methods",
         "utils"
       ],
-      "Hash": "07b14294bf881ad9f1066f2078274a04"
+      "Hash": "83a09ee9c8380fecfcea1daeaa99e3b2"
     },
     "fansi": {
       "Package": "fansi",
@@ -277,7 +277,7 @@
     },
     "gtable": {
       "Package": "gtable",
-      "Version": "0.3.5",
+      "Version": "0.3.6",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -286,9 +286,10 @@
         "glue",
         "grid",
         "lifecycle",
-        "rlang"
+        "rlang",
+        "stats"
       ],
-      "Hash": "e18861963cbc65a27736e02b3cd3c4a0"
+      "Hash": "de949855009e2d4d0e52a844e30617ae"
     },
     "hms": {
       "Package": "hms",
@@ -539,17 +540,13 @@
     },
     "prompt": {
       "Package": "prompt",
-      "Version": "1.0.2.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "prompt",
-      "RemoteUsername": "gaborcsardi",
-      "RemoteSha": "17bd0e1737babf6c6752c31e68ab4ac4bd0f5acd",
+      "Version": "1.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "cli"
       ],
-      "Hash": "23e1f8227dc196805d59cc93ed767770"
+      "Hash": "076fd4918669daae112d5c6e4919bb9b"
     },
     "purrr": {
       "Package": "purrr",
@@ -871,7 +868,7 @@
     },
     "withr": {
       "Package": "withr",
-      "Version": "3.0.1",
+      "Version": "3.0.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -879,20 +876,17 @@
         "grDevices",
         "graphics"
       ],
-      "Hash": "07909200e8bbe90426fbfeb73e1e27aa"
+      "Hash": "cc2d62c76458d425210d1eb1478b30b4"
     },
     "worldfootballR": {
       "Package": "worldfootballR",
-      "Version": "0.6.6.0001",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "worldfootballR",
-      "RemoteUsername": "JaseZiv",
-      "RemoteSha": "dc489beb6775e77ce66b7efe0965a4189ac9ec72",
+      "Version": "0.6.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "cli",
+        "curl",
         "dplyr",
         "glue",
         "httr",
@@ -917,7 +911,7 @@
         "withr",
         "xml2"
       ],
-      "Hash": "d2dc89dbe0f4288200340070df9b1dbc"
+      "Hash": "fc3a2d390db065cb378dc1576a70b102"
     },
     "xml2": {
       "Package": "xml2",
