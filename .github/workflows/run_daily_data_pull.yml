@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RENV_PATHS_ROOT: ~/.local/share/renv
-      STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
-      ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
       
     steps:
     - uses: actions/checkout@v3
@@ -22,6 +20,11 @@ jobs:
       with:
         r-version: '4.4.1'
 
+     # Create .env file with secrets
+     - name: Create .env file
+     run: |
+       echo "STORAGE_ACCOUNT=${{ secrets.STORAGE_ACCOUNT }}" >> .env
+       echo "ACCESS_KEY=${{ secrets.ACCESS_KEY }}" >> .env
 
     - name: Install system dependencies
       run: |
