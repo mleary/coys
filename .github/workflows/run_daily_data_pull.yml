@@ -21,10 +21,10 @@ jobs:
         r-version: '4.4.1'
 
      # Create .env file with secrets
-     - name: Create .env file
-     run: |
-       echo "STORAGE_ACCOUNT=${{ secrets.STORAGE_ACCOUNT }}" >> .env
-       echo "ACCESS_KEY=${{ secrets.ACCESS_KEY }}" >> .env
+    - name: Create .env file
+      run: |
+        echo "STORAGE_ACCOUNT=${{ secrets.STORAGE_ACCOUNT }}" >> .env
+        echo "ACCESS_KEY=${{ secrets.ACCESS_KEY }}" >> .env
 
     - name: Install system dependencies
       run: |
