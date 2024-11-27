@@ -105,6 +105,7 @@ write_team_stats_to_db <- function(team_stats, stat_type, db_name) {
 
 # Capture data for each stat type =============================================
 # Intentionally not using TryCatch to let failure send alert email
+source("1_download_db.R")
 for (item in stat_types) {
     team_stats <- get_team_stats(item)
     source("1_download_db.R")
