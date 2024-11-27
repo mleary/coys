@@ -107,7 +107,7 @@ write_team_stats_to_db <- function(team_stats, stat_type, db_name) {
 # Intentionally not using TryCatch to let failure send alert email
 for (item in stat_types) {
     team_stats <- get_team_stats(item)
-    source("download_db.R")
+    source("1_download_db.R")
     outcome <- write_team_stats_to_db(team_stats, item, DB_NAME)
     message(paste("Success writing local DB! Outcome:", outcome, "for:", item))
     write_db_to_azure(CONTAINER, DB_NAME)
