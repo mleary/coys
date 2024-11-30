@@ -115,7 +115,7 @@ for (item in stat_types) {
     message(paste("Success writing DB to azure!"))
 }
 
-
+file.remove("./weekly_epl_data.duckdb")
 
 # R Session Info ==============================================================
 # platform       aarch64-apple-darwin20      
