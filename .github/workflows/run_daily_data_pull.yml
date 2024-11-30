@@ -47,7 +47,7 @@ jobs:
         renv::restore()
 
     - name: Run R script
-      run: Rscript 0_weekly_data_capture.R
+      run: Rscript 0_epl_data_capture.R
 
     - name: Commit and push if it changed
       run: |
