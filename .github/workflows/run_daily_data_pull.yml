@@ -49,13 +49,4 @@ jobs:
     - name: Run R script
       run: Rscript 0_epl_data_capture.R
 
-    - name: Commit and push if it changed
-      run: |
-        git config --local user.email "actions@github.com"
-        git config --local user.name "GitHub Actions"
-        git add weekly_epl_data.duckdb
-        git commit -m "Update EPL data" || exit 0
-        git push
-      env:
-        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
-        username: github-actions
+ 
