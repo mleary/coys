@@ -13,7 +13,7 @@ I am planning work with a GitHub project [here](https://github.com/users/mleary/
 git clone https://github.com/mleary/coys.git
 ```
 
-To use this script, you will need Azure resources to store the database. You need a blob storage container to hold the duckdb database.  This script depends on a having a .Renviron with the following variables:
+This script depends on having a .Renviron with the following variables:
 
 ```
 AZURE_STORAGE_ACCOUNT={azure storage account name}
