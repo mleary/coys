@@ -47,6 +47,6 @@ jobs:
         renv::restore()
 
     - name: Run R script
-      run: Rscript 0_epl_data_capture.R
+      run: Rscript epl_data_capture.R
 
  
