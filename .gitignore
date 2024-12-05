@@ -1,3 +1,7 @@
+# Project specific files 
+# Do not want to commit local db
+weekly_epl_data.duckdb 
+
 # History files
 .Rhistory
 .Rapp.history
