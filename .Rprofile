@@ -38,11 +38,9 @@ if (interactive()) {
 
     Current Working Directory is:
         -", getwd()," \n"
-    )                     # print changes & working directory
+    ) # print changes & working directory
 
-    #load_pkg("fcuk")      # Loading to catch typos
-    # I stopped loading due to issues with packages and checkpoint + the fact I wasn't using it as much.
-    # Leaving here for now, in case I come back to it.
+
 
     ###### Console prompt chnages
     if(requireNamespace("prompt", quietly = TRUE)) {
