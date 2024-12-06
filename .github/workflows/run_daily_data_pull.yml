@@ -23,10 +23,10 @@ jobs:
      # Create .env file with secrets
     - name: Create .Renviron file
       run: |
-        echo "STORAGE_ACCOUNT=${{ secrets.AZURE_STORAGE_ACCOUNT }}" >> .Renviron
-        echo "ACCESS_KEY=${{ secrets.AZURE_STORAGE_ACCESS_KEY }}" >> .Renviron
-        echo "ACCESS_KEY=${{ secrets.EPL_DB_NAME }}" >> .Renviron
-        echo "ACCESS_KEY=${{ secrets.AZURE_EPL_CONTAINER }}" >> .Renviron
+        echo "AZURE_STORAGE_ACCOUNT=${{ secrets.AZURE_STORAGE_ACCOUNT }}" >> .Renviron
+        echo "AZURE_STORAGE_ACCESS_KEY=${{ secrets.AZURE_STORAGE_ACCESS_KEY }}" >> .Renviron
+        echo "EPL_DB_NAME=${{ secrets.EPL_DB_NAME }}" >> .Renviron
+        echo "AZURE_EPL_CONTAINER=${{ secrets.AZURE_EPL_CONTAINER }}" >> .Renviron
 
     - name: Install system dependencies
       run: |
