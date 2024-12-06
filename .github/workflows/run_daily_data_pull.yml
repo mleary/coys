@@ -21,10 +21,12 @@ jobs:
         r-version: '4.4.1'
 
      # Create .env file with secrets
-    - name: Create .env file
+    - name: Create .Renviron file
       run: |
-        echo "STORAGE_ACCOUNT=${{ secrets.STORAGE_ACCOUNT }}" >> .env
-        echo "ACCESS_KEY=${{ secrets.ACCESS_KEY }}" >> .env
+        echo "STORAGE_ACCOUNT=${{ secrets.AZURE_STORAGE_ACCOUNT }}" >> .Renviron
+        echo "ACCESS_KEY=${{ secrets.AZURE_STORAGE_ACCESS_KEY }}" >> .Renviron
+        echo "ACCESS_KEY=${{ secrets.EPL_DB_NAME }}" >> .Renviron
+        echo "ACCESS_KEY=${{ secrets.AZURE_EPL_CONTAINER }}" >> .Renviron
 
     - name: Install system dependencies
       run: |
